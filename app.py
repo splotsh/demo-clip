@@ -30,9 +30,10 @@ def handler(context: dict, request: Request) -> Response:
     image_url = prompt.get('imageURL', None)
     text = prompt.get('text', None)
     texts = prompt.get('texts', None)
+    print(text, image_byte_string)
 
 
-    if image_byte_string == None and  image_url == None:
+    if image_byte_string == None and image_url == None:
         return Response(
             json={ "Error": "No image provided"},
             status=400
@@ -48,7 +49,7 @@ def handler(context: dict, request: Request) -> Response:
 
     if image_url != None:
         response = requests.get(image_url)
-        image_byte = BytesIO(response.content)
+        image_bytes = BytesIO(response.content)
 
     if image_byte_string != None:
         image_encoded = image_byte_string.encode('utf-8')
