@@ -73,6 +73,8 @@ def handler(context: dict, request: Request) -> Response:
         sim = get_similarity(text_encoding, image_encoding)
         response['similarity'] = sim
 
+    print(response)
+
     Response(
         json=response,
         status=200
