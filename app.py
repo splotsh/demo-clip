@@ -1,14 +1,12 @@
 from potassium import Potassium, Request, Response
 import clip
-import torch
+import json
 from run import encode_image, encode_text, get_similarity
 import requests
 import base64
 from io import BytesIO
 
-
 app = Potassium("clip")
-
 
 @app.init
 def init():
@@ -72,10 +70,10 @@ def handler(context: dict, request: Request) -> Response:
         sim = get_similarity(text_encoding, image_encoding)
         response['similarity'] = sim
 
-    print(response)
+    print(type(response))
 
     Response(
-        json={"similarity": response["similarity"]},
+        json=json.load(response),
         status=200
     )
 
