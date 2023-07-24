@@ -74,7 +74,7 @@ def handler(context: dict, request: Request) -> Response:
 
     Response(
         json={
-            "output": response
+            "output": response["similarity"] if response["similarity"] is not None else response["similarities"]
         },
         status=200
     )
