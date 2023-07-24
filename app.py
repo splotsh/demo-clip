@@ -44,7 +44,7 @@ def handler(context: dict, request: Request) -> Response:
             status=400
         )
     
-    image_byte = None
+    image_bytes = None
 
     if image_url != None:
         response = requests.get(image_url)
