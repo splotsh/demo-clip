@@ -75,7 +75,7 @@ def handler(context: dict, request: Request) -> Response:
     print(response)
 
     Response(
-        json=response["similarities"],
+        json=response["similarity"],
         status=200
     )
 
