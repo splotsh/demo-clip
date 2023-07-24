@@ -30,7 +30,6 @@ def handler(context: dict, request: Request) -> Response:
     image_url = prompt.get('imageURL', None)
     text = prompt.get('text', None)
     texts = prompt.get('texts', None)
-    print(text, image_byte_string)
 
 
     if image_byte_string == None and image_url == None:
@@ -76,7 +75,7 @@ def handler(context: dict, request: Request) -> Response:
     print(response)
 
     Response(
-        json=response,
+        json=response["similarities"],
         status=200
     )
 
