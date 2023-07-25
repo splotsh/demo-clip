@@ -72,7 +72,7 @@ def handler(context: dict, request: Request) -> Response:
 
     print(response)
 
-    Response(
+    return Response(
         json=response,
         status=200
     )
